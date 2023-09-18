@@ -5,6 +5,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Stack;
+
 public class metodos {
 
     public void numerales(Button[] numeros, TextView display) {//Escribe los números presionados por el usuario en e display
@@ -71,48 +73,111 @@ public class metodos {
         }
         return "";
     }
-    public double resolver(String ecuacion) {
-        try {
 
-            // Dividir la ecuación en términos utilizando los operadores +, -, *, /, %
-            String[] terminos = ecuacion.split("[+\\-*/%]");
+    public static double resolver(String expression) {
+        Stack<Double> operandStack = new Stack<>();  // Stack for the operands
+        Stack<Character> operatorStack = new Stack<>();  // Stack for the operators
 
-            // Obtener los operadores de la ecuación
-            String[] operadores = ecuacion.split("[0-9.]+");
+        for (int i = 0; i < expression.length(); i++) {
+            char c = expression.charAt(i);
 
-            // Inicializar el resultado con el primer término
-            double resultado = Double.parseDouble(terminos[0]);
-
-            // Realizar los cálculos
-            for (int i = 1; i < terminos.length; i++) {
-                double termino = Double.parseDouble(terminos[i]);
-                String operador = operadores[i];
-
-                switch (operador) {
-                    case "+":
-                        resultado += termino;
-                        break;
-                    case "-":
-                        resultado -= termino;
-                        break;
-                    case "*":
-                        resultado *= termino;
-                        break;
-                    case "/":
-                        resultado /= termino;
-                        break;
-                    case "%":
-                        resultado %= termino;
-                        break;
+            if (Character.isDigit(c) || c == '.') {  // If the character is a digit or a decimal point
+                StringBuilder operand = new StringBuilder();
+                while (i < expression.length() && (Character.isDigit(expression.charAt(i)) || expression.charAt(i) == '.')) {
+                    operand.append(expression.charAt(i));  // Build an operand
+                    i++;
                 }
+                operandStack.push(Double.parseDouble(operand.toString()));  // Convierte el operando a un número y lo agrega a la pila
+                i--;  // Retrocede un paso para compensar el avance en el bucle while
+            } else if (c == '(') {  // Si el carácter es un paréntesis de apertura
+                operatorStack.push(c);  // Agrega el paréntesis de apertura a la pila de operadores
+            } else if (c == ')') {  // Si el carácter es un paréntesis de cierre
+                while (!operatorStack.isEmpty() && operatorStack.peek() != '(') {
+                    applyOperator(operandStack, operatorStack);  // Aplica operadores hasta encontrar el paréntesis de apertura correspondiente
+                }
+                if (!operatorStack.isEmpty() && operatorStack.peek() == '(') {
+                    operatorStack.pop();  // Retira el paréntesis de apertura de la pila de operadores
+                }
+            } else if (isOperator(c)) {  // Si el carácter es un operador
+                while (!operatorStack.isEmpty() && precedence(operatorStack.peek()) >= precedence(c)) {
+                    applyOperator(operandStack, operatorStack);  // Aplica operadores de acuerdo a la jerarquía de operaciones
+                }
+                operatorStack.push(c);  // Agrega el operador a la pila de operadores
             }
-
-            return resultado;
-        } catch (Exception e) {
-            // Manejar cualquier excepción que pueda ocurrir al evaluar la expresión
-            e.printStackTrace();
-            return Double.NaN; // Devolver un valor especial en caso de error
         }
+
+        while (!operatorStack.isEmpty()) {
+            applyOperator(operandStack, operatorStack);  // Aplica operadores restantes
+        }
+
+        if (operandStack.isEmpty()) {
+            throw new IllegalArgumentException("La expresión no es válida");  // Lanza una excepción si no quedan operandos
+        }
+
+        return operandStack.pop();  // Devuelve el resultado final
+
+    }
+
+    private static boolean isOperator(char c) {
+        return c == '+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '√' || c == '%';
+    }
+
+    private static int precedence(char operator) {
+        if (operator == '+' || operator == '-') {
+            return 1;
+        } else if (operator == '*' || operator == '/' || operator == '%') {
+            return 2;
+        } else if (operator == '^' || operator == '√') {
+            return 3;
+        }
+        return 0;
+    }
+
+    private static void applyOperator(Stack<Double> operandStack, Stack<Character> operatorStack) {
+        if (operandStack.size() < 2 || operatorStack.isEmpty()) {
+            throw new IllegalArgumentException("La expresión no es válida");
+        }
+
+        double operand2 = operandStack.pop();
+        double operand1 = operandStack.pop();
+        char operator = operatorStack.pop();
+
+        double result = 0.0;
+
+        switch (operator) {
+            case '+':
+                result = operand1 + operand2;
+                break;
+            case '-':
+                result = operand1 - operand2;
+                break;
+            case '*':
+                result = operand1 * operand2;
+                break;
+            case '/':
+                if (operand2 == 0) {
+                    throw new ArithmeticException("División por cero");
+                }
+                result = operand1 / operand2;
+                break;
+            case '%':
+                if (operand2 == 0) {
+                    throw new ArithmeticException("Módulo por cero");
+                }
+                result = operand1 % operand2;
+                break;
+            case '^':
+                result = Math.pow(operand1, operand2);
+                break;
+            case '√':
+                if (operand1 < 0) {
+                    throw new ArithmeticException("Raíz cuadrada de un número negativo");
+                }
+                result = Math.sqrt(operand1);
+                break;
+        }
+
+        operandStack.push(result);
     }
 
 
