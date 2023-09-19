@@ -86,7 +86,7 @@ public class metodos {
         for (int i = 0; i < expression.length(); i++) {
             char c = expression.charAt(i); // Almacena cada uno de los caracteres a lo largo del ciclo
 
-            if (Character.isDigit(c) || c == '.') {  // Si el carácter es un dígito o un punto decimal
+            if (Character.isDigit(c) || c == '.') {   // Si el carácter es un dígito o un punto decimal
                 StringBuilder operand = new StringBuilder();
                 // Mientras el siguiente carácter sea un dígito o un punto decimal, construye el operando
                 while (i < expression.length() && (Character.isDigit(expression.charAt(i)) || expression.charAt(i) == '.')) {
@@ -148,21 +148,6 @@ public class metodos {
         // Comprueba que haya al menos dos operandos en la pila de operandos y que no esté vacía
         if (operandStack.size() < 2 || operatorStack.isEmpty()) {
             throw new IllegalArgumentException("La expresión no es válida");
-        } else if (operandStack.size() == 1 && operatorStack.contains("√")) {
-            // En caso de tener un solo operando y el operador es '√' (raíz cuadrada)
-            double operand1 = operandStack.pop(); // Obtiene el único operando
-
-            // Realiza la operación de raíz cuadrada
-            if (operand1 < 0) {
-                throw new ArithmeticException("Raíz cuadrada de un número negativo");
-            }
-            double result = Math.sqrt(operand1);
-
-            // Agrega el resultado a la pila de operandos
-            operandStack.push(result);
-
-            // Elimina el operador de raíz cuadrada de la pila de operadores
-            operatorStack.remove("√");
         }
 
         // Obtiene los dos operandos superiores de la pila de operandos
