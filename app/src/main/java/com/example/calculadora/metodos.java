@@ -1,9 +1,7 @@
 package com.example.calculadora;
 
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Stack;
 
@@ -12,18 +10,15 @@ public class metodos {
     public void numerales(Button[] numeros, TextView display) {//Captures on the display the numbers pressed by the user
         for (int i = 0; i < numeros.length; i++) {
             numeros[i].setTag(i); //Assigns the number as a tag to the button
-            numeros[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Integer numeroPresionado = (Integer) view.getTag(); // Obtains the number from the tag
-                    display.append(numeroPresionado.toString()); // Add the number to the TextView
-                }
+            numeros[i].setOnClickListener(view -> {
+                Integer numeroPresionado = (Integer) view.getTag(); // Obtains the number from the tag
+                display.append(numeroPresionado.toString()); // Add the number to the TextView
             });
         }
     }
 
     public String operadores(String equation, String op) {// Checks if it is allowed to write an exponent
-        char last = '!'; // Initialize the 'last' character as '!'
+        char last; // Initialize the 'last' character as '!'
         if (!equation.isEmpty()) { // Check if the 'equation' string is not empty
             last = equation.charAt(equation.length() - 1); // Get the last character of the 'equation' string
             if (Character.isDigit(last) || last == ')') { // Check if the last character is a digit
@@ -77,63 +72,53 @@ public class metodos {
     }
 
     public static double resolver(String expression) {
-        // Stack para almacenar los operandos (números)
-        Stack<Double> operandStack = new Stack<>();
-        // Stack para almacenar los operadores
-        Stack<Character> operatorStack = new Stack<>();
+        Stack<Double> operandStack = new Stack<>();// Stack to store the operands (numbers)
+        Stack<Character> operatorStack = new Stack<>();//Stack to store the operators
 
-        // Recorre la expresión matemática caracter por caracter
-        for (int i = 0; i < expression.length(); i++) {
-            char c = expression.charAt(i); // Almacena cada uno de los caracteres a lo largo del ciclo
+        for (int i = 0; i < expression.length(); i++) {// Go through the expression character by character
+            char c = expression.charAt(i); // Stores each of the characters throughout the bucle
 
-            if (Character.isDigit(c) || c == '.') {   // Si el carácter es un dígito o un punto decimal
+            if (Character.isDigit(c) || c == '.') {   // If the characters is a digit or a decimal point
                 StringBuilder operand = new StringBuilder();
-                // Mientras el siguiente carácter sea un dígito o un punto decimal, construye el operando
-                while (i < expression.length() && (Character.isDigit(expression.charAt(i)) || expression.charAt(i) == '.')) {
-                    operand.append(expression.charAt(i));  // Construye el operando
+                while (i < expression.length() && (Character.isDigit(expression.charAt(i)) || expression.charAt(i) == '.')) {// While this and the next character is a digit or a decimal point, build the operand
+                    operand.append(expression.charAt(i));  // Build the operand
                     i++;
                 }
-                // Convierte el operando a un número y lo agrega a la pila de operandos
-                operandStack.push(Double.parseDouble(operand.toString()));
-                i--;  // Retrocede un paso para compensar el avance en el bucle while
-            } else if (c == '(') {  // Si el carácter es un paréntesis de apertura
-                operatorStack.push(c);  // Agrega el paréntesis de apertura a la pila de operadores
-            } else if (c == ')') {  // Si el carácter es un paréntesis de cierre
+                operandStack.push(Double.parseDouble(operand.toString()));//Convert the operand into a number and add it to the operands stack
+                i--; // Move back one step to compensate for the advancement in the while loop.
+            } else if (c == '(') {  //If the character is an opening parenthesis
+                operatorStack.push(c);  // Add the opening parenthesis to the operator stack
+            } else if (c == ')') {  // If the character is a closing parenthesis
                 while (!operatorStack.isEmpty() && operatorStack.peek() != '(') {
-                    // Aplica operadores hasta encontrar el paréntesis de apertura correspondiente
-                    applyOperator(operandStack, operatorStack);
+                    applyOperator(operandStack, operatorStack);//Apply operators until the corresponding opening parenthesis is found
                 }
                 if (!operatorStack.isEmpty() && operatorStack.peek() == '(') {
-                    operatorStack.pop();  // Retira el paréntesis de apertura de la pila de operadores
+                    operatorStack.pop();  //Removes the opening parenthesis from the operators stack
                 }
-            } else if (isOperator(c)) {  // Si el carácter es un operador
+            } else if (isOperator(c)) {  // If the character is an operator
                 while (!operatorStack.isEmpty() && precedence(operatorStack.peek()) >= precedence(c)) {
-                    // Aplica operadores de acuerdo a la jerarquía de operaciones
-                    applyOperator(operandStack, operatorStack);
+                    applyOperator(operandStack, operatorStack);//  Apply operators according to the operation hierarchy
                 }
-                operatorStack.push(c);  // Agrega el operador a la pila de operadores
+                operatorStack.push(c);  // Add the operator to the operators stack
             }
         }
-
-        // Aplica operadores restantes
-        while (!operatorStack.isEmpty()) {
+        while (!operatorStack.isEmpty()) {// Apply remaining operators
             applyOperator(operandStack, operatorStack);
         }
 
         if (operandStack.isEmpty()) {
-            throw new IllegalArgumentException("La expresión no es válida");  // Lanza una excepción si no quedan operandos
+            throw new IllegalArgumentException("La expresión no es válida"); //Throws an exception if there are no remaining operands
         }
 
-        // Devuelve el resultado final
-        return operandStack.pop();
+        return operandStack.pop();// Return the final result
     }
 
 
-    private static boolean isOperator(char c) {
+    private static boolean isOperator(char c) {//Check if the character is a valid operator
         return c == '+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '√' || c == '%';
     }
 
-    private static int precedence(char operator) {
+    private static int precedence(char operator) {//Check the precedence of the operator to determine the hirerchy
         if (operator == '+' || operator == '-') {
             return 1;
         } else if (operator == '*' || operator == '/' || operator == '%') {
@@ -145,57 +130,50 @@ public class metodos {
     }
 
     private static void applyOperator(Stack<Double> operandStack, Stack<Character> operatorStack) {
-        // Comprueba que haya al menos dos operandos en la pila de operandos y que no esté vacía
-        if (operandStack.size() < 2 || operatorStack.isEmpty()) {
+        // Comprueba que haya al menos dos operandos en la pila de operandos y que no esté vacía Check that there's at least two operands in the operands stack and tha there's not empty
+        if (operandStack.size() < 2 || operatorStack.isEmpty()) {//Check that there are at least two operands in the operands stack and that it is not empty
             throw new IllegalArgumentException("La expresión no es válida");
         }
 
-        // Obtiene los dos operandos superiores de la pila de operandos
+        // Obtains the two top operands from the operand stack
         double operand2 = operandStack.pop();
         double operand1 = operandStack.pop();
+        char operator = operatorStack.pop();// Obtain the top operator from the operator stack
+        double result = 0.0; // Initialize the result variable with 0.0
 
-        // Obtiene el operador superior de la pila de operadores
-        char operator = operatorStack.pop();
-
-        double result = 0.0; // Inicializa la variable de resultado con 0.0
-
-        // Utiliza un interruptor (switch) para realizar la operación correspondiente
+//Use a switch statement to perform the corresponding operation
         switch (operator) {
             case '+':
-                result = operand1 + operand2; // Suma los operandos
+                result = operand1 + operand2; // Add the operands
                 break;
             case '-':
-                result = operand1 - operand2; // Resta los operandos
+                result = operand1 - operand2;// Substract the operands
                 break;
             case '*':
-                result = operand1 * operand2; // Multiplica los operandos
+                result = operand1 * operand2; // Multiply the operands
                 break;
             case '/':
                 if (operand2 == 0) {
                     throw new ArithmeticException("División por cero");
                 }
-                result = operand1 / operand2; // Divide los operandos
+                result = operand1 / operand2; // Divide the operands
                 break;
             case '%':
                 if (operand2 == 0) {
                     throw new ArithmeticException("Módulo por cero");
                 }
-                result = operand1 % operand2; // Calcula el módulo de los operandos
+                result = operand1 % operand2; //Calculate the modulus of the operands
                 break;
             case '^':
-                result = Math.pow(operand1, operand2); // Calcula la potencia de operand1 elevado a operand2
+                result = Math.pow(operand1, operand2); // Calcula la potencia de operand1 elevado a operand2 Calculate the potence of operand1 elevated to operand2
                 break;
             case '√':
                 if (operand1 < 0) {
                     throw new ArithmeticException("Raíz cuadrada de un número negativo");
                 }
-                result = Math.sqrt(operand2); // Calcula la raíz cuadrada de operand1
+                result = Math.pow(operand1, operand2); // Calculate the power of operand1 raised to operand2
                 break;
         }
-
-        // Agrega el resultado de la operación a la pila de operandos
-        operandStack.push(result);
+        operandStack.push(result);// Add the result of the operation to the operands stack
     }
-
-
 }
