@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public int parentesisA = 0, parentesisC = 0;//Variables to control the correct use of parentheses
@@ -44,90 +43,56 @@ public class MainActivity extends AppCompatActivity {
         Button dock = findViewById(R.id.btnPunto);
 
         method.numerales(numeros, display);//Load the number buttons to allow user input on the display
-        exp.setOnClickListener(new View.OnClickListener() {//Click on button "Exponent"
-            @Override
-            public void onClick(View view) {
-                display.append(method.operadores((String) display.getText().toString(), "^"));
+        //Click on button "Exponent"
+        exp.setOnClickListener(view -> display.append(method.operadores(display.getText().toString(), "^")));
+        //Click on button "root"
+        root.setOnClickListener(view -> display.append(method.operadores(display.getText().toString(), "√")));
+        //Click on button "Delete all"
+        deleteAll.setOnClickListener(view -> {
+            display.setText("");//Delete all the text on the display
+//Restart the parentheses counter for keep a correct control of them
+            parentesisC = 0;
+            parentesisA = 0;
+        });
+        //Click on button "Delete"
+        delete.setOnClickListener(view -> {
+            display.setText(method.delete(display.getText().toString(), MainActivity.this));//Calls a method that deletes the last characther on the display
+        });
+        //Click on button "Aperture parentheses"
+        parenthesesO.setOnClickListener(view -> {
+            display.append("(");
+            parentesisA += 1;//increments the counter of parentheses
+        });
+        //Click on button "parentheses close"
+        parenthesesC.setOnClickListener(view -> {
+            if (method.parenteshesControl(parentesisA, parentesisC, MainActivity.this)) {//Check wether allowed to write a CLose parentheses
+                display.append(")");
             }
         });
-        root.setOnClickListener(new View.OnClickListener() {//Click on button "root"
-            @Override
-            public void onClick(View view) {
-                display.append(method.operadores((String) display.getText().toString(), "√"));
-            }
+        //Click on button "modulus"
+        mod.setOnClickListener(view -> {
+            display.append(method.operadores(display.getText().toString(), "%"));//Check whether allowed to write a module operator
         });
-        deleteAll.setOnClickListener(new View.OnClickListener() {//Click on button "Delete all"
-            @Override
-            public void onClick(View view) {
-                display.setText("");//Delete all the text on the display
-                parentesisC = 0;//Restart the parentheses counter for keep a correct control of them
-                parentesisA = 0;
-            }
-        });
-        delete.setOnClickListener(new View.OnClickListener() {//Click on button "Delete"
-            @Override
-            public void onClick(View view) {
-                display.setText(method.delete(display.getText().toString(), MainActivity.this));//Calls a method that deletes the last characther on the display
-            }
-        });
-        parenthesesO.setOnClickListener(new View.OnClickListener() {//Click on button "Aperture parentheses"
-            @Override
-            public void onClick(View view) {
-                display.append("(");
-                parentesisA += 1;//increments the counter of parentheses
-            }
-        });
-        parenthesesC.setOnClickListener(new View.OnClickListener() {//Click on button "parentheses close"
-            @Override
-            public void onClick(View view) {
-                if (method.parenteshesControl(parentesisA, parentesisC, MainActivity.this)) {//Check if it is allowed to write a CLose parentheses
-                    display.append(")");
-                }
-            }
-        });
-        mod.setOnClickListener(new View.OnClickListener() {//Click on button "modulo"
-            @Override
-            public void onClick(View view) {
-                display.append(method.operadores((String) display.getText().toString(), "%"));//Check whether allowed to write a module operator
-            }
-        });
-        div.setOnClickListener(new View.OnClickListener() {//Click on button "division"
-            @Override
-            public void onClick(View view) {
-                display.append(method.operadores((String) display.getText().toString(), "/"));//Check whether allowed to write a division operator
+        //Click on button "division"
+        div.setOnClickListener(view -> {
+            display.append(method.operadores(display.getText().toString(), "/"));//Check whether allowed to write a division operator
 
-            }
         });
-        sum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                display.append(method.operadores((String) display.getText().toString(), "+"));//Check whether allowed to write a plus operator
-            }
+        //Click on button "add"
+        sum.setOnClickListener(view -> {
+            display.append(method.operadores(display.getText().toString(), "+"));//Check whether allowed to write a plus operator
         });
-        mul.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                display.append(method.operadores((String) display.getText().toString(), "*"));//Check whether allowed to write a multiplication operator
-            }
+        //Click on button "multiply"
+        mul.setOnClickListener(view -> {
+            display.append(method.operadores(display.getText().toString(), "*"));//Check whether allowed to write a multiplication operator
         });
-        men.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                display.append(method.operadores((String) display.getText().toString(), "-"));//Check whether allowed to write a minus operator
-            }
+        //Click on button "substract"
+        men.setOnClickListener(view -> {
+            display.append(method.operadores(display.getText().toString(), "-"));//Check whether allowed to write a minus operator
         });
-        dock.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                display.append(method.puntos(display.getText().toString()));
-            }
-        });
-        equals.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                display.setText(String.valueOf(method.resolver((String) display.getText().toString())));
-            }
-        });
+        //Click on button "decimal point"
+        dock.setOnClickListener(view -> display.append(method.puntos(display.getText().toString())));
+        //Click on button "equals"
+        equals.setOnClickListener(view -> display.setText(String.valueOf(metodos.resolver(display.getText().toString()))));
     }
-
 }

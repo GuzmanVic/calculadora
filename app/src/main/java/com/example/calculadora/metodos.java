@@ -17,7 +17,7 @@ public class metodos {
         }
     }
 
-    public String operadores(String equation, String op) {// Checks if it is allowed to write an exponent
+    public String operadores(String equation, String op) {// Check wheter allowed to write an operator
         char last; // Initialize the 'last' character as '!'
         if (!equation.isEmpty()) { // Check if the 'equation' string is not empty
             last = equation.charAt(equation.length() - 1); // Get the last character of the 'equation' string
@@ -33,7 +33,7 @@ public class metodos {
     public String delete(String ecuacion, MainActivity main) {
         String newText = "";
         if (ecuacion.length() > 0) {
-            if (ecuacion.toCharArray().length - 1 == ')') {//Checks if the las characther was a parentheses for control the use of them
+            if (ecuacion.toCharArray().length - 1 == ')') {//Check if the las characther was a parentheses for control the use of them
                 main.parentesisC -= 1;
             } else if (ecuacion.toCharArray().length - 1 == '(') {
                 main.parentesisA -= 1;
@@ -43,7 +43,7 @@ public class metodos {
         return newText;//Returns the new Text
     }
 
-    public boolean parenteshesControl(int parentesisA, int parentesisC, MainActivity main) {//Checks if it is allowed to write a close parentheses
+    public boolean parenteshesControl(int parentesisA, int parentesisC, MainActivity main) {//Check wheter allowed to write a close parentheses
         if (parentesisA > parentesisC) {
             main.parentesisC += 1;
             return true;
@@ -130,8 +130,8 @@ public class metodos {
     }
 
     private static void applyOperator(Stack<Double> operandStack, Stack<Character> operatorStack) {
-        // Comprueba que haya al menos dos operandos en la pila de operandos y que no esté vacía Check that there's at least two operands in the operands stack and tha there's not empty
-        if (operandStack.size() < 2 || operatorStack.isEmpty()) {//Check that there are at least two operands in the operands stack and that it is not empty
+        // Check that there's at least two operands in the operands stack and tha there's not empty
+        if (operandStack.size() < 2 || operatorStack.isEmpty()) {
             throw new IllegalArgumentException("La expresión no es válida");
         }
 
@@ -165,7 +165,7 @@ public class metodos {
                 result = operand1 % operand2; //Calculate the modulus of the operands
                 break;
             case '^':
-                result = Math.pow(operand1, operand2); // Calcula la potencia de operand1 elevado a operand2 Calculate the potence of operand1 elevated to operand2
+                result = Math.pow(operand1, operand2); // Calculate the potence of operand1 elevated to operand2
                 break;
             case '√':
                 if (operand1 < 0) {
