@@ -1,15 +1,43 @@
 package com.example.calculadora;
 
+import android.annotation.SuppressLint;
+import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Stack;
 
+
 public class metodos {
 
-    public void numerales(Button[] numeros, TextView display) {//Captures on the display the numbers pressed by the user
+
+    public static boolean colores(Button boton, MainActivity tis, MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            // Changes the background color when the button is pressed
+            boton.setBackgroundColor(tis.getResources().getColor(R.color.colorPressed));
+        } else if (event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL) {
+            // Changes the background color back to the original color when the button is released
+            if (boton.getText().toString().equals("=")) {
+                // If it's the '=' button, change to a different color
+                boton.setBackgroundColor(tis.getResources().getColor(R.color.colorNormalE));
+            } else {
+                // For other buttons, change to the normal color
+                boton.setBackgroundColor(tis.getResources().getColor(R.color.colorNormal));
+            }
+        }
+        return false;
+    }
+
+
+
+    @SuppressLint("ClickableViewAccessibility")
+    public void numerales(Button[] numeros, TextView display, MainActivity tis) {//Captures on the display the numbers pressed by the user
         for (int i = 0; i < numeros.length; i++) {
             numeros[i].setTag(i); //Assigns the number as a tag to the button
+            int finalI = i;//Auxiliar variable to control the touchListener in buttons
+            numeros[i].setOnTouchListener((v, event) -> {//Changes the color of the buttons pressed
+                return colores(numeros[finalI], tis, event);
+            });
             numeros[i].setOnClickListener(view -> {
                 Integer numeroPresionado = (Integer) view.getTag(); // Obtains the number from the tag
                 display.append(numeroPresionado.toString()); // Add the number to the TextView

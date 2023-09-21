@@ -9,12 +9,10 @@
 
     <Button
         android:id="@+id/btnDeleteAll"
-        style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="90sp"
         android:layout_height="90sp"
-        android:background="@drawable/button_selector"
-        android:backgroundTint="#000"
-        android:text="C"
+        android:backgroundTint="@color/black"
+        android:text="@string/c"
         android:textColor="#FF0303"
         android:textSize="50sp"
         app:layout_constraintStart_toEndOf="@+id/btnRaiz"
@@ -22,12 +20,11 @@
 
     <Button
         android:id="@+id/btnExp"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
         android:layout_marginStart="24dp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="x²"
+        android:backgroundTint="@color/black"
+        android:text="@string/power"
         android:textColor="#88E41D"
         android:textColorHighlight="#DADCD9"
         android:textColorHint="#DADCD9"
@@ -41,7 +38,7 @@
         android:layout_width="90sp"
         android:layout_height="90sp"
         android:backgroundTint="#000000"
-        android:text="²√x"
+        android:text="@string/root"
         android:textColor="#88E41D"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/btnExp"
@@ -53,7 +50,7 @@
         android:layout_height="90sp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="#000000"
-        android:text="←"
+        android:text="@string/backspace"
         android:textAlignment="center"
         android:textColor="#88E41D"
         android:textDirection="locale"
@@ -66,12 +63,11 @@
 
     <Button
         android:id="@+id/btnparentesisA"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
         android:layout_marginStart="24dp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="("
+        android:backgroundTint="@color/black"
+        android:text="@string/parenthesesO"
         android:textColor="#88E41D"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,12 +75,11 @@
 
     <Button
         android:id="@+id/btn7"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
         android:layout_marginStart="24dp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="7"
+        android:backgroundTint="@color/black"
+        android:text="@string/_7"
         android:textColor="#FFF"
         android:textSize="50sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,12 +87,12 @@
 
     <Button
         android:id="@+id/btn1"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
         android:layout_marginStart="24dp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="1"
+        android:backgroundTint="@color/black"
+        android:text="@string/_1"
+        android:textColor="#FFF"
         android:textSize="50sp"
         app:layout_constraintEnd_toStartOf="@+id/btn2"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,78 +100,78 @@
 
     <Button
         android:id="@+id/btn2"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="2"
+        android:backgroundTint="@color/black"
+        android:text="@string/_2"
+        android:textColor="#FFF"
         android:textSize="50sp"
         app:layout_constraintStart_toEndOf="@+id/btn1"
         app:layout_constraintTop_toBottomOf="@+id/btn5" />
 
     <Button
         android:id="@+id/btn3"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="3"
+        android:backgroundTint="@color/black"
+        android:text="@string/_3"
+        android:textColor="#FFF"
         android:textSize="50sp"
         app:layout_constraintStart_toEndOf="@+id/btn2"
         app:layout_constraintTop_toBottomOf="@+id/btn6" />
 
     <Button
         android:id="@+id/btn4"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
         android:layout_marginStart="24dp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="4"
+        android:backgroundTint="@color/black"
+        android:text="@string/_4"
+        android:textColor="#FFF"
         android:textSize="50sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn7" />
 
     <Button
         android:id="@+id/btn5"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="5"
+        android:backgroundTint="@color/black"
+        android:text="@string/_5"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         android:textSize="50sp"
         app:layout_constraintStart_toEndOf="@+id/btn4"
         app:layout_constraintTop_toBottomOf="@+id/btn8" />
 
     <Button
         android:id="@+id/btn6"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="6"
+        android:backgroundTint="@color/black"
+        android:text="@string/_6"
+        android:textColor="#FFF"
         android:textSize="50sp"
         app:layout_constraintStart_toEndOf="@+id/btn5"
         app:layout_constraintTop_toBottomOf="@+id/btn9" />
 
     <Button
         android:id="@+id/btn9"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="9"
+        android:backgroundTint="@color/black"
+        android:text="@string/_9"
+        android:textColor="#FFF"
         android:textSize="50sp"
         app:layout_constraintStart_toEndOf="@+id/btn8"
         app:layout_constraintTop_toBottomOf="@+id/btnMod" />
 
     <Button
         android:id="@+id/btn8"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="8"
+        android:backgroundTint="@color/black"
+        android:text="@string/_8"
         android:textColor="#FFF"
         android:textSize="50sp"
         app:layout_constraintStart_toEndOf="@+id/btn7"
@@ -184,11 +179,10 @@
 
     <Button
         android:id="@+id/btnParentesisC"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text=")"
+        android:backgroundTint="@color/black"
+        android:text="@string/parenthesesC"
         android:textColor="#88E41D"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/btnparentesisA"
@@ -196,11 +190,10 @@
 
     <Button
         android:id="@+id/btnMod"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="MOD"
+        android:backgroundTint="@color/black"
+        android:text="@string/mod"
         android:textColor="#88E41D"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/btnParentesisC"
@@ -208,12 +201,11 @@
 
     <Button
         android:id="@+id/btnDiv"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
         android:layout_marginEnd="24dp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="÷"
+        android:backgroundTint="@color/black"
+        android:text="@string/division"
         android:textColor="#88E41D"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -223,12 +215,11 @@
 
     <Button
         android:id="@+id/btnSum"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
         android:layout_marginEnd="24dp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="+"
+        android:backgroundTint="@color/black"
+        android:text="@string/plus"
         android:textColor="#88E41D"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -238,12 +229,11 @@
 
     <Button
         android:id="@+id/btnMul"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
         android:layout_marginEnd="24dp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="*"
+        android:backgroundTint="@color/black"
+        android:text="@string/multiply"
         android:textColor="#88E41D"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -253,12 +243,11 @@
 
     <Button
         android:id="@+id/btnMen"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
         android:layout_marginEnd="24dp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="-"
+        android:backgroundTint="@color/black"
+        android:text="@string/substract"
         android:textColor="#88E41D"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -268,12 +257,12 @@
 
     <Button
         android:id="@+id/btnIgual"
-        style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="90sp"
         android:layout_height="90sp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/equals_selector"
-        android:text="="
+        android:backgroundTint="#06870B"
+        android:text="@string/equals"
+        android:textColor="#Fff"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -282,22 +271,22 @@
 
     <Button
         android:id="@+id/btnPunto"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="."
+        android:backgroundTint="@color/black"
+        android:text="@string/decimal"
+        android:textColor="#FFF"
         android:textSize="50sp"
         app:layout_constraintEnd_toStartOf="@+id/btnIgual"
         app:layout_constraintTop_toBottomOf="@+id/btn3" />
 
     <Button
         android:id="@+id/btn0"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="90sp"
         android:layout_height="90sp"
-        android:backgroundTint="@drawable/button_selector"
-        android:text="0"
+        android:backgroundTint="@color/black"
+        android:text="@string/_0"
+        android:textColor="#FFF"
         android:textSize="50sp"
         app:layout_constraintEnd_toStartOf="@+id/btnPunto"
         app:layout_constraintTop_toBottomOf="@+id/btn2" />
@@ -305,8 +294,8 @@
 
     <TextView
         android:id="@+id/display"
-        android:layout_width="403dp"
-        android:layout_height="172dp"
+        android:layout_width="416dp"
+        android:layout_height="167dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:textColor="#FFFFFF"

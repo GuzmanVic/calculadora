@@ -2,8 +2,8 @@ package com.example.calculadora;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     public int parentesisA = 0, parentesisC = 0;//Variables to control the correct use of parentheses
     metodos method = new metodos();//Instance of the class "metodos" wich controlls all the logic of the app
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Button equals = findViewById(R.id.btnIgual);
         Button dock = findViewById(R.id.btnPunto);
 
-        method.numerales(numeros, display);//Load the number buttons to allow user input on the display
+        method.numerales(numeros, display, this);//Load the number buttons to allow user input on the display
         //Click on button "Exponent"
         exp.setOnClickListener(view -> display.append(method.operadores(display.getText().toString(), "^")));
         //Click on button "root"
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             parentesisC = 0;
             parentesisA = 0;
         });
+
         //Click on button "Delete"
         delete.setOnClickListener(view -> {
             display.setText(method.delete(display.getText().toString(), MainActivity.this));//Calls a method that deletes the last characther on the display
@@ -94,11 +96,24 @@ public class MainActivity extends AppCompatActivity {
         dock.setOnClickListener(view -> display.append(method.puntos(display.getText().toString())));
         //Click on button "equals"
         equals.setOnClickListener(view -> {
-            if (display.getText().toString().isEmpty()) {
-
-            } else {
+            if (!display.getText().toString().isEmpty()) {
                 display.setText(String.valueOf(metodos.resolver(display.getText().toString())));
             }
         });
+
+        //Controls the appearance of the buttons
+        deleteAll.setOnTouchListener((v, event) -> metodos.colores(deleteAll, this, event));
+        exp.setOnTouchListener((v, event) -> metodos.colores(exp, this, event));
+        root.setOnTouchListener((v, event) -> metodos.colores(root, this, event));
+        delete.setOnTouchListener((v, event) -> metodos.colores(delete, this, event));
+        parenthesesO.setOnTouchListener((v, event) -> metodos.colores(parenthesesO, this, event));
+        parenthesesC.setOnTouchListener((v, event) -> metodos.colores(parenthesesO, this, event));
+        mod.setOnTouchListener((v, event) -> metodos.colores(mod, this, event));
+        div.setOnTouchListener((v, event) -> metodos.colores(div, this, event));
+        sum.setOnTouchListener((v, event) -> metodos.colores(sum, this, event));
+        mul.setOnTouchListener((v, event) -> metodos.colores(mul, this, event));
+        men.setOnTouchListener((v, event) -> metodos.colores(men, this, event));
+        dock.setOnTouchListener((v, event) -> metodos.colores(dock, this, event));
+        equals.setOnTouchListener((v, event) -> metodos.colores(equals, this, event));
     }
 }
