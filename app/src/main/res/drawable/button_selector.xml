@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true"> <!-- presionado -->
-        <shape android:shape="rectangle">
-            <corners android:radius="6dp" />
-            <solid android:color="@color/colorNormal" />
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado cuando el botón está presionado -->
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#FF5733" /> <!-- Cambia el color a tu elección -->
+            <corners android:radius="8dp" /> <!-- Añade esquinas redondeadas si lo deseas -->
         </shape>
     </item>
+    <!-- Estado predeterminado (cuando el botón no está presionado) -->
     <item>
-        <shape android:shape="rectangle">
-<solid android:angle="0" android:startColor="@color/colorPressed"
+        <shape>
+            <solid android:color="#33B5E5" /> <!-- Cambia el color a tu elección -->
+            <corners android:radius="8dp" /> <!-- Añade esquinas redondeadas si lo deseas -->
         </shape>
-    </item><!-- en foco -->
-    <item android:drawable="@color/black" tools:ignore="StateListReachable" /> <!-- por defecto -->
-
+    </item>
 </selector>

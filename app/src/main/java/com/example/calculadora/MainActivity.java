@@ -93,6 +93,12 @@ public class MainActivity extends AppCompatActivity {
         //Click on button "decimal point"
         dock.setOnClickListener(view -> display.append(method.puntos(display.getText().toString())));
         //Click on button "equals"
-        equals.setOnClickListener(view -> display.setText(String.valueOf(metodos.resolver(display.getText().toString()))));
+        equals.setOnClickListener(view -> {
+            if (display.getText().toString().isEmpty()) {
+
+            } else {
+                display.setText(String.valueOf(metodos.resolver(display.getText().toString())));
+            }
+        });
     }
 }

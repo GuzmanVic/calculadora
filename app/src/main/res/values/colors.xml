@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorNormal">#000000</color> <!-- Color normal -->
+    <color name="colorNormal">#AB0000</color> <!-- Color normal -->
     <color name="colorNormalE">#06870B</color> <!-- Color normal -->
     <color name="colorPressed">#41686C68</color> <!-- Color cuando se presiona -->
 
