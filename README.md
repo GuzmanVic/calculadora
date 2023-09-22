@@ -16,7 +16,7 @@ Intuitive and user-friendly user interface.
 Accurate and fast results.
 
 ## Capturas de Pantalla
-![Interface screenshot](ruta/de/la/captura-de-pantalla.png)
+![Interface screenshot](WhatsApp Image 2023-09-22 at 3.18.02 PM.jpeg)
 _(Agrega aquí las capturas de pantalla de tu aplicación si es necesario)_
 
 ## Instalación
