@@ -16,7 +16,7 @@ Intuitive and user-friendly user interface.
 Accurate and fast results.
 
 ## Capturas de Pantalla
-![Captura de Pantalla 1](screenshot1.png)
+![Interface screenshot](ruta/de/la/captura-de-pantalla.png)
 _(Agrega aquí las capturas de pantalla de tu aplicación si es necesario)_
 
 ## Instalación
