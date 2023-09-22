@@ -78,9 +78,6 @@ without the use of external libraries, to provide a fast and efficient calculati
 ## Contribución
 Si deseas contribuir a este proyecto, ¡eres bienvenido! Puedes enviar sugerencias, informar problemas o enviar solicitudes de extracción. Asegúrate de seguir las mejores prácticas de desarrollo y respetar las pautas de contribución.
 
-## Contact
-If you have any questions or comments about the Calculator, please feel free to contact me at [vguzmanloredo@gmail.com] or through my GitHub account.
-Si tienes alguna pregunta o comentario acerca de la calculadora, por favor no dudes en contactarme en [vguzmanloredo@gmail.com] o a traves de mi cuenta de GitHub
 ## Contacto
 Si tienes alguna pregunta o comentario sobre la Calculadora Android, no dudes en ponerte en contacto conmigo en [vguzmanloredo@gmail.com] o en mi cuenta de GitHub.
 
