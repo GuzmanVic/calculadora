@@ -9,7 +9,6 @@ This Android calculator app is a mobile application that allows you to perform a
 without the use of external libraries, to provide a fast and efficient calculation experience.
 
 ## Main Functions:
-
 Performs basic mathematical operations such as addition, subtraction, multiplication, and division.
 Executes advanced calculations, including operations with decimal numbers and powers.
 Intuitive and user-friendly user interface.
@@ -24,20 +23,16 @@ Accurate and fast results.
 3. Ready! Now you can use the Calculator in your device. 
 
 ## Use
-- Abre la aplicación Calculadora Android en tu dispositivo.
-- Toca los números y operadores en la pantalla para realizar tus cálculos.
-- El resultado se mostrará en la parte superior de la pantalla.
-- Open the Calculator app in your device.
-- Tocuh the numbers and operators on the screen to make your calculations.
-- The result will be show
-## Contribución
-Si deseas contribuir a este proyecto, ¡eres bienvenido! Puedes enviar sugerencias, informar problemas o enviar solicitudes de extracción. Asegúrate de seguir las mejores prácticas de desarrollo y respetar las pautas de contribución.
+- Open the Calculator app on your device.
+- Tap the numbers and operators on the screen to perform your calculations.
+- The result will be displayed at the top of the screen.
 
-## Licencia
-Este proyecto está bajo la Licencia [Nombre de la Licencia]. Puedes consultar el archivo [LICENSE](LICENSE) para obtener más detalles.
+## Contribution
+If you wish to contribute to this project, you are welcome! You can send suggestions, report problems, or submit pull requests. Make sure to follow the best development practices and respect the contribution guidelines.
 
-## Contacto
-Si tienes alguna pregunta o comentario sobre la Calculadora Android, no dudes en ponerte en contacto conmigo en [tu dirección de correo electrónico] o [tu cuenta de GitHub].
+## Contact
+If you have any questions or comments about the Calculator, please feel free to contact me at [vguzmanloredo@gmail.com] or through my GitHub account.### ESPAÑOL
+
 
 ### ESPAÑOL
 # Calculadora
@@ -52,11 +47,10 @@ without the use of external libraries, to provide a fast and efficient calculati
 - Resultados precisos y rápidos.
 
 ## Capturas de Pantalla
-![Captura de Pantalla 1](screenshot1.png)
-_(Agrega aquí las capturas de pantalla de tu aplicación si es necesario)_
+![Interface screenshot](screenshot.jpeg)
 
 ## Instalación
-1. Descarga el archivo APK de la aplicación desde [enlace a tu archivo APK] o clona este repositorio.
+1. Clona este repositorio.
 2. Instala el archivo APK en tu dispositivo Android.
 3. ¡Listo! Ahora puedes utilizar la Calculadora Android en tu dispositivo.
 
@@ -68,10 +62,7 @@ _(Agrega aquí las capturas de pantalla de tu aplicación si es necesario)_
 ## Contribución
 Si deseas contribuir a este proyecto, ¡eres bienvenido! Puedes enviar sugerencias, informar problemas o enviar solicitudes de extracción. Asegúrate de seguir las mejores prácticas de desarrollo y respetar las pautas de contribución.
 
-## Licencia
-Este proyecto está bajo la Licencia [Nombre de la Licencia]. Puedes consultar el archivo [LICENSE](LICENSE) para obtener más detalles.
-
 ## Contacto
-Si tienes alguna pregunta o comentario sobre la Calculadora Android, no dudes en ponerte en contacto conmigo en [tu dirección de correo electrónico] o [tu cuenta de GitHub].
+Si tienes alguna pregunta o comentario sobre la Calculadora Android, no dudes en ponerte en contacto conmigo en [vguzmanloredo@gmail.com] o en mi cuenta de GitHub.
 
 ¡Gracias por usar la Calculadora Android!
