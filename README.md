@@ -15,20 +15,21 @@ Executes advanced calculations, including operations with decimal numbers and po
 Intuitive and user-friendly user interface.
 Accurate and fast results.
 
-## Capturas de Pantalla
-![Interface screenshot](WhatsApp Image 2023-09-22 at 3.18.02 PM.jpeg)
-_(Agrega aquí las capturas de pantalla de tu aplicación si es necesario)_
+## Screenshots
+![Interface screenshot](screenshot.jpeg)
 
-## Instalación
-1. Descarga el archivo APK de la aplicación desde [enlace a tu archivo APK] o clona este repositorio.
-2. Instala el archivo APK en tu dispositivo Android.
-3. ¡Listo! Ahora puedes utilizar la Calculadora Android en tu dispositivo.
+## Instalation
+1. Clone this repository.
+2. Install the APK file on your Android device.
+3. Ready! Now you can use the Calculator in your device. 
 
-## Uso
+## Use
 - Abre la aplicación Calculadora Android en tu dispositivo.
 - Toca los números y operadores en la pantalla para realizar tus cálculos.
 - El resultado se mostrará en la parte superior de la pantalla.
-
+- Open the Calculator app in your device.
+- Tocuh the numbers and operators on the screen to make your calculations.
+- The result will be show
 ## Contribución
 Si deseas contribuir a este proyecto, ¡eres bienvenido! Puedes enviar sugerencias, informar problemas o enviar solicitudes de extracción. Asegúrate de seguir las mejores prácticas de desarrollo y respetar las pautas de contribución.
 
