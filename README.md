@@ -4,6 +4,14 @@
 ### ENGLISH
 # Calculator
 
+[Description](#description)
+[Main Functions](#main-functions)
+[Screenshot](#screenshots)
+[Instalation](#instalation)
+[Use](#use)
+[Contribution](#contribution)
+[Contact](#contact)
+
 ## Description
 This Android calculator app is a mobile application that allows you to perform a wide variety of mathematical calculations directly on your Android device. It was developed from scratch in Android Studio, 
 without the use of external libraries, to provide a fast and efficient calculation experience.
@@ -31,13 +39,21 @@ Accurate and fast results.
 If you wish to contribute to this project, you are welcome! You can send suggestions, report problems, or submit pull requests. Make sure to follow the best development practices and respect the contribution guidelines.
 
 ## Contact
-If you have any questions or comments about the Calculator, please feel free to contact me at [vguzmanloredo@gmail.com] or through my GitHub account.### ESPAÑOL
+If you have any questions or comments about the Calculator, please feel free to contact me at [vguzmanloredo@gmail.com] or through my GitHub account.
 
 
 ### ESPAÑOL
 # Calculadora
 
-## Description
+[Descripcion](#descripcion)
+[Características Principales](#características-principales)
+[Capturas de Pantalla](#Capturas-de-Pantalla)
+[Instalacion](#instalación)
+[Uso](#uso)
+[Contribución](#contribución)
+[Contacto](#contacto)
+
+## Descripcion
 This Android calculator app is a mobile application that allows you to perform a wide variety of mathematical calculations directly on your Android device. It was developed from scratch in Android Studio, 
 without the use of external libraries, to provide a fast and efficient calculation experience.
 ## Características Principales
@@ -62,6 +78,9 @@ without the use of external libraries, to provide a fast and efficient calculati
 ## Contribución
 Si deseas contribuir a este proyecto, ¡eres bienvenido! Puedes enviar sugerencias, informar problemas o enviar solicitudes de extracción. Asegúrate de seguir las mejores prácticas de desarrollo y respetar las pautas de contribución.
 
+## Contact
+If you have any questions or comments about the Calculator, please feel free to contact me at [vguzmanloredo@gmail.com] or through my GitHub account.
+Si tienes alguna pregunta o comentario acerca de la calculadora, por favor no dudes en contactarme en [vguzmanloredo@gmail.com] o a traves de mi cuenta de GitHub
 ## Contacto
 Si tienes alguna pregunta o comentario sobre la Calculadora Android, no dudes en ponerte en contacto conmigo en [vguzmanloredo@gmail.com] o en mi cuenta de GitHub.
 
